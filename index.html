@@ -3,26 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>경기도 월하군 월하리 마을회관 - 2차 추가 모집</title>
+  <title>경기도 월하군 월하리 마을회관 - 2차 모집 마감</title>
   <style>
     @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
     :root {
-      /* 은은한 키치 파스텔 컬러 팔레트 */
       --bg-main: #f9f6f0;
       --card-bg: #ffffff;
       --kitsch-pink: #ffb7c5;
       --kitsch-soft-pink: #fff0f3;
       --kitsch-green: #a3c9a8;
       --kitsch-mint: #e8f5e9;
-      --kitsch-yellow: #fff3b0;
       --text-main: #3d348b;
       --text-sub: #6c5ce7;
       --text-body: #4a4e69;
       --border-color: #e2ece9;
-      --warning-bg: #fff5f5;
-      --warning-border: #ffc9c9;
-      --warning-text: #e03131;
       --closed-bg: #f1f3f5;
       --closed-border: #dee2e6;
       --closed-text: #868e96;
@@ -107,7 +102,6 @@
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
       margin-bottom: 20px;
       border: 2px solid var(--border-color);
-      transition: transform 0.2s ease;
     }
 
     .card-title {
@@ -136,26 +130,27 @@
     }
 
     .guide-box {
-      background: var(--kitsch-mint);
+      background: var(--closed-bg);
+      border: 1.5px solid var(--closed-border);
+      opacity: 0.85;
       padding: 14px;
       border-radius: 16px;
-      border: 1.5px solid var(--kitsch-green);
       position: relative;
     }
 
     .guide-box.full-width {
       grid-column: 1 / -1;
+      background: #f8f9fa;
     }
 
-    .guide-box.closed {
-      background: var(--closed-bg);
-      border-color: var(--closed-border);
-      opacity: 0.75;
-    }
-
-    .guide-box.closed h4,
-    .guide-box.closed p {
+    .guide-box h4,
+    .guide-box p {
       color: var(--closed-text);
+    }
+
+    .guide-box.full-width h4,
+    .guide-box.full-width p {
+      color: var(--text-body);
     }
 
     .status-badge {
@@ -166,15 +161,6 @@
       font-weight: 800;
       padding: 2px 8px;
       border-radius: 10px;
-    }
-
-    .status-badge.open {
-      background: #ffec99;
-      color: #e67700;
-      border: 1px solid #ffd43b;
-    }
-
-    .status-badge.closed {
       background: #e9ecef;
       color: #adb5bd;
       border: 1px solid #ced4da;
@@ -182,7 +168,6 @@
 
     .guide-box h4 {
       font-size: 14px;
-      color: var(--text-main);
       margin-bottom: 4px;
       font-weight: 700;
       padding-right: 50px;
@@ -190,80 +175,29 @@
 
     .guide-box p {
       font-size: 12.5px;
+      line-height: 1.5;
+    }
+
+    .closed-notice-box {
+      background: var(--kitsch-soft-pink);
+      border: 2px dashed var(--kitsch-pink);
+      border-radius: 20px;
+      padding: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .closed-notice-box h3 {
+      color: var(--text-main);
+      font-size: 20px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .closed-notice-box p {
       color: var(--text-body);
-      line-height: 1.5;
-    }
-
-    .notice-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .notice-list li {
-      position: relative;
-      padding-left: 20px;
-      margin-bottom: 12px;
-      font-size: 13.5px;
-      color: #333;
-      word-break: keep-all;
-    }
-
-    .notice-list li::before {
-      content: "🌸";
-      font-size: 12px;
-      position: absolute;
-      left: 0;
-      top: 1px;
-    }
-
-    .notice-highlight {
-      background-color: var(--kitsch-yellow);
-      padding: 2px 6px;
-      border-radius: 6px;
-      font-weight: 700;
-      color: var(--text-main);
-    }
-
-    .info-sub-box {
-      background-color: var(--kitsch-soft-pink);
-      border: 1.5px dashed var(--kitsch-pink);
-      border-radius: 14px;
-      padding: 12px 14px;
-      margin-top: 12px;
-      font-size: 12.5px;
-      color: var(--text-main);
-    }
-
-    .info-sub-box p {
-      margin-bottom: 4px;
-    }
-
-    .info-sub-box p:last-child {
-      margin-bottom: 0;
-    }
-
-    .warning-box {
-      background-color: var(--warning-bg);
-      border: 2px dashed var(--warning-border);
-      border-radius: 16px;
-      padding: 14px 16px;
-      margin-top: 14px;
-    }
-
-    .warning-box h5 {
-      color: var(--warning-text);
-      font-size: 13.5px;
-      font-weight: 800;
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .warning-box p {
-      font-size: 12.5px;
-      color: #555;
-      line-height: 1.5;
+      font-size: 14px;
+      line-height: 1.6;
     }
 
     .contact-box {
@@ -282,11 +216,6 @@
       color: var(--text-sub);
     }
 
-    .tally-card {
-      border: 2.5px solid var(--kitsch-pink);
-      background: #ffffff;
-    }
-
     footer {
       text-align: center;
       font-size: 11.5px;
@@ -300,88 +229,55 @@
 
   <div class="container">
     <header>
-      <span class="badge">📍 경기도 월하군 월하리 (2차 추가 모집)</span>
+      <span class="badge">📍 경기도 월하군 월하리 (2차 모집 마감)</span>
       <h1>월하리(月下里) 마을회관</h1>
-      <p class="subtitle">밤하늘이 아름다워 '달 아래 마을'이라 불리는 곳 🌙<br>자유롭고 편안한 분위기 속에서 새로운 이웃을 기다려요!</p>
+      <p class="subtitle">밤하늘이 아름다워 '달 아래 마을'이라 불리는 곳 🌙<br>성원에 힘입어 2차 주민 모집이 모두 마감되었습니다.</p>
     </header>
 
+    <div class="closed-notice-box">
+      <h3>🚫 2차 주민 등록 신청 마감 안내</h3>
+      <p><b>8월 10일 자정</b>을 기점으로 월하리 마을의 모든 2차 추가 모집(학생, 교직원, 농업조합 등 전 분야)이 최종 마감되었습니다.<br>보내주신 성원에 깊이 감사드립니다!</p>
+    </div>
+
     <div class="card">
-      <div class="card-title">🌾 월하리 마을 둘러보기</div>
+      <div class="card-title">🌾 월하리 마을 현황판</div>
       <div class="guide-grid">
-        <div class="guide-box full-width" style="background: #f8f9fa; border-color: #dee2e6;">
+        <div class="guide-box full-width" style="border-color: #dee2e6;">
           <h4>🚌 마을 위치 및 교통</h4>
           <p>경기도 외곽에 위치한 호젓한 시골 마을입니다. 서울이나 도심으로 나가려면 마을버스를 타고 한참 나가 지하철역이 있는 읍내로 가야 하는 조용한 환경입니다.</p>
         </div>
         
-        <div class="guide-box closed">
-          <span class="status-badge closed">마감</span>
+        <div class="guide-box">
+          <span class="status-badge">마감</span>
           <h4>🏫 월하고등학교</h4>
-          <p>한 학년에 반이 단 하나뿐인 아주 작고 아담한 학교입니다. 교직원 및 학생 모집은 마감되었습니다.</p>
+          <p>한 학년에 반이 단 하나뿐인 아주 작고 아담한 학교입니다. 교직원 및 학생 모집이 마감되었습니다.</p>
         </div>
 
-        <div class="guide-box" style="background: var(--kitsch-soft-pink); border-color: var(--kitsch-pink);">
-          <span class="status-badge open">모집중</span>
+        <div class="guide-box">
+          <span class="status-badge">마감</span>
           <h4>🌱 월하농업조합</h4>
-          <p>원예, 양봉업 등 마을의 중심 농업 분야를 모집합니다. (단, 토마토, 벼, 복숭아, 고구마, 포도 작물/품목은 제외)</p>
+          <p>원예, 양봉업 등 마을의 중심 농업 분야 모집이 마감되었습니다.</p>
         </div>
 
-        <div class="guide-box closed" style="background: var(--closed-bg); border-color: var(--closed-border);">
-          <span class="status-badge closed">마감</span>
+        <div class="guide-box">
+          <span class="status-badge">마감</span>
           <h4>🏪 마을 생활 시설 & 자영업</h4>
           <p>월하슈퍼, 백반집, 카페, 정미소, 의원, 미용실 등 생활 상점 직업군은 마감되었습니다.</p>
         </div>
 
-        <div class="guide-box closed">
-          <span class="status-badge closed">마감</span>
-          <h4>🏡 귀촌 주민 (소수 모집)</h4>
-          <p>귀촌 주민 일반 모집은 마감되었습니다.</p>
+        <div class="guide-box">
+          <span class="status-badge">마감</span>
+          <h4>🏡 귀촌 주민</h4>
+          <p>귀촌 주민 일반 모집이 마감되었습니다.</p>
         </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="card-title">📢 2차 봇계 수칙 & 가입 안내</div>
-      <ul class="notice-list">
-        <li><b>2차 추가 모집 안내:</b> 이번 2차 오픈은 당초 학생, 교직원, 농업조합 등을 함께 모집하였으나, 현재는 월하고 학생 및 교직원 자리가 마감됨에 따라 <span class="notice-highlight">월하농업조합</span>(토마토, 벼, 복숭아, 고구마, 포도 제외) 잔여 인원만 소수 모집합니다. 추천인 제도가 아닌 <b>일반 모집</b>이며, 신청서를 꼼꼼히 검토하여 기존 주민들의 봇 설정과 겹치지 않고 결이 맞는 분께 <b>공식 계정으로 개별 연락(DM)</b>을 드립니다. (원활한 연락을 위해 반드시 DM을 열어주세요!)</li>
-        <li><b>오너 연령 제한:</b> 본 마을은 <span class="notice-highlight">뒷주(오너) 2007년생 이상 성인</span>만 지원이 가능합니다.</li>
-        <li><b>공지 숙지 필수:</b> 공지를 제대로 읽지 않고 지원서를 작성하신 분들이 많았습니다. 공지를 미숙지하신 분은 <b>입주하실 수 없습니다.</b></li>
-        <li><b>마을 분위기 및 지향점:</b> 빡센 봇계가 아니며, <b>자유롭게 머물고 지내는 평화로운 봇계</b>를 지향합니다. 15세 관람가를 추구하며, 탐라 내 NSFW는 절대 금지됩니다. 가상의 평화로운 시골 마을 설정이므로 과한 연애 서사(치정극 등)는 다른 주민에게 피해를 줄 수 있으므로 자제해 주시길 바랍니다.</li>
-        <li><b>캐릭터 성향 제한:</b> 지나치게 많은 이성에게 호감을 유도하거나 어장관리를 하는 듯한 매력 과다 스타일(소위 '은교여시'류 타입)은 원치 않으며, 여성 캐릭터의 <b>과한 노출 의상 또한 제한</b>됩니다.</li>
-        <li><b>관캐 및 혐관 설정 안내:</b> 월하리에는 이미 관캐 설정으로 입주해 계신 분들이 존재합니다. 혐관 설정의 주민들은 이미 합의된 관계일 수 있으므로 본인도 따라서 함부로 대하면 안 됩니다. 또한, 커플(관캐) 동반 지원 시 상황에 따라 두 분 모두가 아닌 <b>한 분만 선정될 수도 있음</b>을 명시합니다.</li>
-        <li><b>뒷주(오너)와 봇계 분리 & 책임:</b> 오너와 캐릭터(봇계)를 동일시하지 말아 주세요. 운영진 대표를 포함한 모든 운영진도 봇계 경력이 있습니다. 봇계 신청자들은 자신의 행동에 늘 책임을 져야 하며, <b>분란이 일어날 시 분란을 유발한 인원 모두가 마을을 떠나는 방향</b>으로 진행합니다.</li>
-        <li><b>캐릭터 관계 제한:</b> <span class="notice-highlight">미성년자 캐릭터와 성인 캐릭터 간의 연애 불가, 연애 및 성적 교류 일체 불가</span>합니다.</li>
-        <li><b>수위 표현 관련:</b> 퍼블릭 트윗에서의 스킨십/수위는 <span class="notice-highlight">키스까지 가능</span>하며, 성적인 암시는 불가능합니다. 성적 암시 및 그 이상의 수위 표현은 반드시 <b>DM(개인 메세지)</b>을 이용해 주세요.</li>
-      </ul>
-
-      <div class="info-sub-box">
-        <p><b>💡 선관 대상 정보 안내 (신청서 작성 시)</b></p>
-        <p>• 선관계 설정이 있을 경우에만 작성해 주세요.</p>
-        <p>• 작성 방법: <code>상대방 트위터 아이디 / 관계 (예: 부부, 연인, 친구 등)</code></p>
+      <div class="contact-box" style="margin-top: 20px;">
+        💌 <b>안내 사항</b><br>
+        모집이 완료됨에 따라 신청서 폼은 닫혔습니다.<br>
+        관련 문의 사항은 <b>마월 공식 계정 DM</b> 또는<br>
+        운영진 대표 <strong>재이🍓(@b1ue_j2)</strong> 계정으로 연락 부탁드립니다!
       </div>
-
-      <div class="warning-box">
-        <h5>⛔ 주의사항 미숙지 및 수칙 위반 시 책임 안내</h5>
-        <p>안내된 <b>주의사항 및 수칙을 숙지하지 않아 발생하는 모든 문제의 책임은 봇계 개인(오너)에게 있음</b>을 명시합니다. <b>(학생 캐릭터 NSFW는 DM을 포함해 전면 금지)</b></p>
-      </div>
-
-      <div class="contact-box">
-        💌 <b>문의 안내</b><br>
-        기타 모든 문의 사항은 <b>마을 공식 계정 DM</b> 또는<br>
-        운영진 대표 <strong>재이🍓(@b1ue_j2)</strong> 계정으로 편하게 연락 부탁드립니다!
-      </div>
-    </div>
-
-    <!-- Tally 폼 영역 -->
-    <div class="card tally-card">
-      <div class="card-title">✉️ 2차 주민 등록 신청서 작성하기</div>
-      
-      <iframe 
-        data-tally-src="https://tally.so/r/pbNpvP?transparentBackground=1" 
-        loading="lazy" width="100%" height="450" frameborder="0" title="월하리 2차 주민 등록 신청서">
-      </iframe>
-      <script>
-        var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(!d.querySelector('script[src="'+w+'"]')){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
-      </script>
     </div>
 
     <footer>
