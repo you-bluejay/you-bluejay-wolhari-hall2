@@ -55,8 +55,6 @@
       border: 3px dashed var(--kitsch-pink);
       box-shadow: 0 8px 25px rgba(255, 183, 197, 0.25);
       margin-bottom: 20px;
-      position: relative;
-      overflow: hidden;
     }
 
     header::before {
@@ -85,7 +83,6 @@
       margin-bottom: 8px;
       font-weight: 900;
       letter-spacing: -0.5px;
-      text-shadow: 1px 1px 0px #ffffff;
     }
 
     .subtitle {
@@ -97,60 +94,65 @@
 
     .card {
       background: var(--card-bg);
-      padding: 24px;
+      padding: 28px 24px;
       border-radius: 24px;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
       margin-bottom: 20px;
       border: 2px solid var(--border-color);
+      text-align: center;
     }
 
-    .card-title {
-      font-size: 17px;
-      font-weight: 800;
+    .closed-notice-box {
+      background: var(--closed-bg);
+      border: 2px solid var(--closed-border);
+      border-radius: 20px;
+      padding: 32px 20px;
+      margin-bottom: 20px;
+    }
+
+    .closed-notice-box h2 {
+      font-size: 20px;
       color: var(--text-main);
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      border-bottom: 2px dashed var(--kitsch-pink);
-      padding-bottom: 8px;
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+
+    .closed-notice-box p {
+      font-size: 14px;
+      color: var(--closed-text);
+      line-height: 1.7;
+      word-break: keep-all;
+    }
+
+    .highlight-date {
+      color: var(--text-sub);
+      font-weight: 700;
     }
 
     .guide-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
+      text-align: left;
+      margin-top: 20px;
     }
 
     @media (max-width: 500px) {
       .guide-grid { grid-template-columns: 1fr; }
       body { padding: 16px 8px; }
-      .card { padding: 18px; }
-      h1 { font-size: 22px; }
     }
 
     .guide-box {
       background: var(--closed-bg);
       border: 1.5px solid var(--closed-border);
-      opacity: 0.85;
       padding: 14px;
       border-radius: 16px;
       position: relative;
+      opacity: 0.8;
     }
 
     .guide-box.full-width {
       grid-column: 1 / -1;
-      background: #f8f9fa;
-    }
-
-    .guide-box h4,
-    .guide-box p {
-      color: var(--closed-text);
-    }
-
-    .guide-box.full-width h4,
-    .guide-box.full-width p {
-      color: var(--text-body);
     }
 
     .status-badge {
@@ -168,6 +170,7 @@
 
     .guide-box h4 {
       font-size: 14px;
+      color: var(--closed-text);
       margin-bottom: 4px;
       font-weight: 700;
       padding-right: 50px;
@@ -175,41 +178,20 @@
 
     .guide-box p {
       font-size: 12.5px;
+      color: var(--closed-text);
       line-height: 1.5;
-    }
-
-    .closed-notice-box {
-      background: var(--kitsch-soft-pink);
-      border: 2px dashed var(--kitsch-pink);
-      border-radius: 20px;
-      padding: 24px;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .closed-notice-box h3 {
-      color: var(--text-main);
-      font-size: 20px;
-      font-weight: 900;
-      margin-bottom: 8px;
-    }
-
-    .closed-notice-box p {
-      color: var(--text-body);
-      font-size: 14px;
-      line-height: 1.6;
     }
 
     .contact-box {
       background: var(--kitsch-mint);
       border: 1.5px solid var(--kitsch-green);
-      border-radius: 14px;
-      padding: 14px;
+      border-radius: 16px;
+      padding: 18px;
       text-align: center;
-      font-size: 13px;
+      font-size: 13.5px;
       color: var(--text-main);
-      margin-top: 14px;
       line-height: 1.6;
+      word-break: keep-all;
     }
 
     .contact-box strong {
@@ -229,40 +211,46 @@
 
   <div class="container">
     <header>
-      <span class="badge">📍 경기도 월하군 월하리 (2차 모집 마감)</span>
+      <span class="badge">📍 경기도 월하군 월하리 (모집 완료)</span>
       <h1>월하리(月下里) 마을회관</h1>
-      <p class="subtitle">밤하늘이 아름다워 '달 아래 마을'이라 불리는 곳 🌙<br>성원에 힘입어 2차 주민 모집이 모두 마감되었습니다.</p>
+      <p class="subtitle">밤하늘이 아름다워 '달 아래 마을'이라 불리는 곳 🌙<br>따뜻한 관심과 함께 모든 모집이 마감되었습니다.</p>
     </header>
 
-    <div class="closed-notice-box">
-      <h3>🚫 2차 주민 등록 신청 마감 안내</h3>
-      <p><b>8월 10일 자정</b>을 기점으로 월하리 마을의 모든 2차 추가 모집(학생, 교직원, 농업조합 등 전 분야)이 최종 마감되었습니다.<br>보내주신 성원에 깊이 감사드립니다!</p>
-    </div>
-
     <div class="card">
-      <div class="card-title">🌾 월하리 마을 현황판</div>
+      <div class="closed-notice-box">
+        <h2>🌙 2차 주민 등록 신청 마감 안내</h2>
+        <p>
+          <span class="highlight-date">2026년 8월 10일 자정</span>을 기점으로<br>
+          월하리 마을의 모든 2차 추가 모집(학생, 교직원, 농업조합 등) 일정이 최종 마감되었습니다.<br><br>
+          선정되신 분들께는 개별적으로 <b>공식 계정 DM</b> 발송이 모두 완료되었습니다. 
+          따뜻한 발걸음을 함께해 주신 모든 분께 진심으로 감사드립니다.
+        </p>
+      </div>
+
+      <div style="font-size: 15px; font-weight: 800; color: var(--text-main); margin-bottom: 4px; text-align: left;">🌾 마을 구역별 현황</div>
+      
       <div class="guide-grid">
-        <div class="guide-box full-width" style="border-color: #dee2e6;">
+        <div class="guide-box full-width" style="background: #f8f9fa; border-color: #dee2e6; opacity: 1;">
           <h4>🚌 마을 위치 및 교통</h4>
-          <p>경기도 외곽에 위치한 호젓한 시골 마을입니다. 서울이나 도심으로 나가려면 마을버스를 타고 한참 나가 지하철역이 있는 읍내로 가야 하는 조용한 환경입니다.</p>
+          <p>경기도 외곽에 위치한 호젓한 시골 마을로 상시 조용한 환경을 유지합니다.</p>
         </div>
         
         <div class="guide-box">
           <span class="status-badge">마감</span>
           <h4>🏫 월하고등학교</h4>
-          <p>한 학년에 반이 단 하나뿐인 아주 작고 아담한 학교입니다. 교직원 및 학생 모집이 마감되었습니다.</p>
+          <p>학생 및 교직원 모집이 모두 마감되었습니다.</p>
         </div>
 
         <div class="guide-box">
           <span class="status-badge">마감</span>
           <h4>🌱 월하농업조합</h4>
-          <p>원예, 양봉업 등 마을의 중심 농업 분야 모집이 마감되었습니다.</p>
+          <p>농업 분야(토마토, 벼, 복숭아, 고구마, 포도 제외) 모집이 마감되었습니다.</p>
         </div>
 
         <div class="guide-box">
           <span class="status-badge">마감</span>
           <h4>🏪 마을 생활 시설 & 자영업</h4>
-          <p>월하슈퍼, 백반집, 카페, 정미소, 의원, 미용실 등 생활 상점 직업군은 마감되었습니다.</p>
+          <p>상점 직업군 모집이 마감되었습니다.</p>
         </div>
 
         <div class="guide-box">
@@ -271,12 +259,13 @@
           <p>귀촌 주민 일반 모집이 마감되었습니다.</p>
         </div>
       </div>
+    </div>
 
-      <div class="contact-box" style="margin-top: 20px;">
-        💌 <b>안내 사항</b><br>
-        모집이 완료됨에 따라 신청서 폼은 닫혔습니다.<br>
-        관련 문의 사항은 <b>마월 공식 계정 DM</b> 또는<br>
-        운영진 대표 <strong>재이🍓(@b1ue_j2)</strong> 계정으로 연락 부탁드립니다!
+    <div class="card" style="padding: 20px;">
+      <div class="contact-box">
+        💌 <b>모집 완료 안내</b><br>
+        모든 심사 및 DM 발송 작업이 종료되었습니다.<br>
+        관련 문의 사항은 마을 공식 계정으로 남겨주시면 확인 후 조치해 드리겠습니다.
       </div>
     </div>
 
